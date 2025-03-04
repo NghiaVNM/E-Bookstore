@@ -13,3 +13,6 @@ export const getAllByTag = async (tag) => {
     if (tag === 'All') return getAll();
     return sample_books.filter(item => item.tags.includes(tag));
 };
+
+export const getById = async bookId => 
+    sample_books.find(book => book.id === bookId);
