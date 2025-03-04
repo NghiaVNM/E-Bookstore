@@ -66,3 +66,17 @@ export const sample_books = [
     tags: ['Classic', 'Romance', 'Historical'],
   },
 ];
+
+export const sample_tags = [
+  { name: 'All', count: 6 },
+  { name: 'Classic', count: 3 },
+  { name: 'American', count: 1 },
+  { name: 'Novel', count: 1 },
+  { name: 'Historical', count: 2 },
+  { name: 'Legal', count: 1 },
+  { name: 'Dystopia', count: 1 },
+  { name: 'Political Fiction', count: 1 },
+  { name: 'Fantasy', count: 1 },
+  { name: 'Adventure', count: 2 },
+  { name: 'Romance', count: 1 }
+]

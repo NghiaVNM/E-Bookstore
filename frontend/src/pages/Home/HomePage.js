@@ -1,15 +1,18 @@
 import React, { useEffect, useReducer } from 'react'
-import { getAll, search } from '../../services/bookService';
+import { getAll, getAllByTag, getAllTags, search } from '../../services/bookService';
 import Thumbnails from '../../components/Thumbnails/Thumbnails';
 import { useParams } from 'react-router-dom';
 import Serach from '../../components/Search/Serach';
+import Tags from '../../components/Tags/Tags';
 
-const initialState = { books: [] };
+const initialState = { books: [], tags: [] };
 
 const reducer = (state, action) => {
     switch (action.type) {
         case 'BOOKS_LOADED':
             return { ...state, books: action.payload };
+        case 'TAGS_LOADED':
+                return { ...state, tags: action.payload };
         default:
             return state;
     }
@@ -17,17 +20,23 @@ const reducer = (state, action) => {
 
 export default function HomePage() {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const { books } = state;
-    const { searchTerm } = useParams();
+    const { books, tags } = state;
+    const { searchTerm, tag } = useParams();
 
     useEffect( () => {
-        const loadedBooks = searchTerm ? search(searchTerm): getAll();
+        getAllTags().then(tags => dispatch({ type: 'TAGS_LOADED', payload: tags }));
 
-        loadedBooks.then(books => dispatch({ type: 'BOOKS_LOADED', payload: books }));
-    }, [searchTerm]);
+        const loadBooks = tag 
+            ? getAllByTag(tag)
+            : searchTerm
+            ? search(searchTerm)
+            : getAll();
+        loadBooks.then(books => dispatch({ type: 'BOOKS_LOADED', payload: books }));
+    }, [searchTerm, tag]);
 
     return <>
         <Serach />
+        <Tags tags={tags}/>
         <Thumbnails books={ books }/>
     </>;
 }
