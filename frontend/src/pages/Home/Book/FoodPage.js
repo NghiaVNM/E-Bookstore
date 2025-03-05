@@ -1,14 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import classes from './foodPage.module.css'
 import { getById } from '../../../services/bookService';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import StarRating from '../../../components/StarRating/StarRating';
 import Tags from '../../../components/Tags/Tags';
 import Price from '../../../components/Price/Price';
+import { useCart } from '../../../hook/useCart';
 
 export default function FoodPage() {
     const [book, setBook] = useState({});
     const {id} = useParams();
+    const {addToCart} = useCart();
+    const navidate = useNavigate();
+
+    const handleAddToCart = () => {
+        addToCart(book);
+        navidate('/cart');
+    };
 
     useEffect(() => {
         getById(id).then(setBook);
@@ -56,7 +64,7 @@ export default function FoodPage() {
                     <Price price={book.price} />
                 </div>
 
-                <button>Add To Cart</button>
+                <button onClick={handleAddToCart}>Add To Cart</button>
             </div>
         </div>
     )}
