@@ -4,6 +4,7 @@ import Thumbnails from '../../components/Thumbnails/Thumbnails';
 import { useParams } from 'react-router-dom';
 import Serach from '../../components/Search/Serach';
 import Tags from '../../components/Tags/Tags';
+import NotFound from '../../components/NotFound/NotFound';
 
 const initialState = { books: [], tags: [] };
 
@@ -37,6 +38,7 @@ export default function HomePage() {
     return <>
         <Serach />
         <Tags tags={tags}/>
+        {books.length === 0 && <NotFound linkText='Reset Search'/>}
         <Thumbnails books={ books }/>
     </>;
 }

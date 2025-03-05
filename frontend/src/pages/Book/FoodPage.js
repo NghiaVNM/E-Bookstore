@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import classes from './foodPage.module.css'
-import { getById } from '../../../services/bookService';
+import { getById } from '../../services/bookService';
 import { useNavigate, useParams } from 'react-router-dom';
-import StarRating from '../../../components/StarRating/StarRating';
-import Tags from '../../../components/Tags/Tags';
-import Price from '../../../components/Price/Price';
-import { useCart } from '../../../hook/useCart';
+import StarRating from '../../components/StarRating/StarRating';
+import Tags from '../../components/Tags/Tags';
+import Price from '../../components/Price/Price';
+import { useCart } from '../../hook/useCart';
+import NotFound from '../../components/NotFound/NotFound';
 
 export default function FoodPage() {
     const [book, setBook] = useState({});
@@ -23,7 +24,7 @@ export default function FoodPage() {
     }, [id]);
 
   return <>
-    { book && (
+    { !book? (<NotFound message='Book Not Found!' linkText='Back To Home Page'/>) : (
         <div className={classes.container}>
             <img 
                 className={classes.image} 

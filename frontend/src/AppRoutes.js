@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/Home/HomePage';
-import FoodPage from './pages/Home/Book/FoodPage';
+import FoodPage from './pages/Book/FoodPage';
 import CartPage from './pages/Cart/CartPage';
 
 export default function AppRoutes() {
