@@ -1,13 +1,13 @@
 export const sample_books = [
   {
     id: '1',
-    title: 'The Great Gatsby', 
+    title: 'The Great Gatsby',
     publicationYear: 1925,
     price: 15,
     favorite: false,
-    genres: ['Classic', 'Fiction'], 
+    genres: ['Classic', 'Fiction'],
     stars: 4.5,
-    coverImageUrl: 'great-gatsby.jpg', 
+    coverImageUrl: 'great-gatsby.jpg',
     tags: ['Classic', 'American', 'Novel'],
   },
   {
@@ -79,4 +79,23 @@ export const sample_tags = [
   { name: 'Fantasy', count: 1 },
   { name: 'Adventure', count: 2 },
   { name: 'Romance', count: 1 }
+]
+
+export const sample_users = [
+  {
+    id: 1,
+    name: 'John Doe',
+    email: 'john@gmail.com',
+    password: '12345',
+    address: 'Toronto On',
+    isAdmin: false,
+  },
+  {
+    id: 2,
+    name: 'Jane Doe',
+    email: 'jane@gmail.com',
+    password: '12345',
+    address: 'Shanghai',
+    isAdmin: true,
+  },
 ]
