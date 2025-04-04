@@ -1,18 +1,29 @@
-import { sample_books, sample_tags } from "../data";
+import axios from 'axios';
 
-export const getAll = async () => sample_books;
+export const getAll = async () => {
+    const { data } = await axios.get('/api/books');
+    return data; 
+};
 
 export const search = async (searchTerm) =>
-    sample_books.filter(item =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+{
+    const { data } = await axios.get(`/api/books/search/${searchTerm}`);
+    return data;
+}
 
-export const getAllTags = async () => sample_tags;
+export const getAllTags = async () => {
+    const { data } = await axios.get('/api/books/tags');
+    return data;
+};
 
 export const getAllByTag = async (tag) => {
     if (tag === 'All') return getAll();
-    return sample_books.filter(item => item.tags.includes(tag));
-};
+    const { data } = await axios.get(`/api/books/tag/${tag}`);
 
-export const getById = async bookId => 
-    sample_books.find(book => book.id === bookId);
+    return data;
+}
+
+export const getById = async bookId => {
+    const { data } = await axios.get(`/api/books/${bookId}`);
+    return data;
+};
