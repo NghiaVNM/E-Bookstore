@@ -29,7 +29,7 @@ export default function Thumbnails({ books }) {
               </div>
               <div className={classes.product_item_footer}>
                 <div className={classes.genres}>
-                  {book.genres.map(genre => (
+                  {book.genres && book.genres.map(genre => (
                     <span key={genre}>{genre}</span>
                   ))}
                 </div>
