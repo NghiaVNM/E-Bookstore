@@ -5,6 +5,7 @@ import express, { Router } from 'express';
 import cors from 'cors';
 import bookRouter from './router/book.router.js';
 import userRouter from './router/user.router.js';
+import orderRouter from './router/order.router.js';
 
 import {dbconnect} from './config/database.config.js';
 dbconnect();
@@ -21,6 +22,7 @@ app.use(
 
 app.use('/api/books', bookRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 const PORT = 5000;
 app.listen(PORT, () => {
