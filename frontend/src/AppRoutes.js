@@ -3,6 +3,7 @@ import HomePage from './pages/Home/HomePage';
 import FoodPage from './pages/Book/FoodPage';
 import CartPage from './pages/Cart/CartPage';
 import LoginPage from './pages/Login/LoginPage';
+import RegisterPage from './pages/Register/RegisterPage';
 
 export default function AppRoutes() {
   return <Routes>
@@ -12,5 +13,6 @@ export default function AppRoutes() {
     <Route path='/book/:id' element={<FoodPage />} />
     <Route path='/cart' element={<CartPage />} />
     <Route path='/login' element={<LoginPage />} />
+    <Route path='/register' element={<RegisterPage />} />
   </Routes>
 }
