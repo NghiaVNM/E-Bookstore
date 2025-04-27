@@ -9,6 +9,10 @@ import CheckoutPage from './pages/Checkout/CheckoutPage';
 import PaymentPage from './pages/Payment/PaymentPage';
 import OrderTrackPage from './pages/OrderTrack/OrderTrackPage';
 import ProfilePage from './pages/Profile/ProfilePage';
+// import OrdersPage from './pages/Orders/OrdersPage';
+import Dashboard from './pages/Dashboard/Dashboard';
+import BooksAdminPage from './pages/BooksAdmin/BooksAdminPage';
+import AdminRoute from './components/AdminRoute/AdminRoute';
 
 export default function AppRoutes() {
   return <Routes>
@@ -51,5 +55,29 @@ export default function AppRoutes() {
         </AuthRoute>
       }
     />
+    {/* <Route
+        path="/orders/:filter?"
+        element={
+          <AuthRoute>
+            <OrdersPage />
+          </AuthRoute>
+        }
+      /> */}
+      <Route
+        path="/dashboard"
+        element={
+          <AuthRoute>
+            <Dashboard />
+          </AuthRoute>
+        }
+      />
+      <Route
+        path="/admin/books/:searchTerm?"
+        element={
+          <AdminRoute>
+            <BooksAdminPage />
+          </AdminRoute>
+        }
+      />
   </Routes>
 }

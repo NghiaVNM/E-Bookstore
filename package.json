@@ -1,5 +1,22 @@
 {
-  "dependencies": {
-    "express-async-handler": "^1.2.0"
-  }
+  "name": "e-bookstore",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build",
+    "postbuild": "xcopy /E /I /Y frontend\\build\\* backend\\src\\public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NghiaVNM/E-Bookstore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NghiaVNM/E-Bookstore/issues"
+  },
+  "homepage": "https://github.com/NghiaVNM/E-Bookstore#readme"
 }

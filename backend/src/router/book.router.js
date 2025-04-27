@@ -1,12 +1,23 @@
 import {Router} from 'express';
 import { BookModel } from '../models/book.model.js';
 import handler from 'express-async-handler';
+import admin from '../middleware/admin.mid.js';
 
 const router = Router();
 router.get('/', handler(async(req, res) => {
     const books = await BookModel.find({});
     res.send(books);
 }));
+
+router.delete(
+    '/:bookId',
+    admin,
+    handler(async (req, res) => {
+      const { bookId } = req.params;
+      await BookModel.deleteOne({ _id: bookId });
+      res.send();
+    })
+  );
 
 router.get('/tags', handler(async(req, res) => {
     const tags = await BookModel.aggregate([

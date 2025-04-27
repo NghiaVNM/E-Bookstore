@@ -27,3 +27,7 @@ export const getById = async bookId => {
     const { data } = await axios.get(`/api/books/${bookId}`);
     return data;
 };
+
+export async function deleteById(bookId) {
+    await axios.delete(`/api/books/${bookId}`);
+  }
