@@ -6,6 +6,7 @@ import cors from 'cors';
 import bookRouter from './router/book.router.js';
 import userRouter from './router/user.router.js';
 import orderRouter from './router/order.router.js';
+import uploadRouter from './router/upload.router.js';
 
 import {dbconnect} from './config/database.config.js';
 import path, { dirname } from 'path';
@@ -27,6 +28,7 @@ app.use(
 app.use('/api/books', bookRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
+app.use('/api/upload', uploadRouter);
 
 const publicFolder = path.join(__dirname, 'public');
 app.use(express.static(publicFolder));

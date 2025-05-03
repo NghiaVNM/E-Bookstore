@@ -31,3 +31,12 @@ export const getById = async bookId => {
 export async function deleteById(bookId) {
     await axios.delete(`/api/books/${bookId}`);
   }
+
+  export async function update(book) {
+    await axios.put('/api/books', book);
+  }
+  
+  export async function add(book) {
+    const { data } = await axios.post('/api/books', book);
+    return data;
+  }

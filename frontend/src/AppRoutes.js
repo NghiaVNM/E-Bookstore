@@ -13,6 +13,7 @@ import ProfilePage from './pages/Profile/ProfilePage';
 import Dashboard from './pages/Dashboard/Dashboard';
 import BooksAdminPage from './pages/BooksAdmin/BooksAdminPage';
 import AdminRoute from './components/AdminRoute/AdminRoute';
+import BookEditPage from './pages/BookEdit/BookEditPage';
 
 export default function AppRoutes() {
   return <Routes>
@@ -76,6 +77,22 @@ export default function AppRoutes() {
         element={
           <AdminRoute>
             <BooksAdminPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/admin/addBook"
+        element={
+          <AdminRoute>
+            <BookEditPage />
+          </AdminRoute>
+        }
+      />
+      <Route
+        path="/admin/editBook/:bookId"
+        element={
+          <AdminRoute>
+            <BookEditPage />
           </AdminRoute>
         }
       />

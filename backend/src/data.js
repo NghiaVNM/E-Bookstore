@@ -45,7 +45,7 @@ export const sample_books = [
   },
   {
     id: '5',
-    title: "Harry Potter and the Philosopher's Stone",
+    title: "Harry Potter & the Philosopher's Stone",
     publicationYear: 1997,
     price: 30,
     favorite: true,

@@ -19,6 +19,32 @@ router.delete(
     })
   );
 
+  router.put(
+    '/',
+    admin,
+    handler(async (req, res) => {
+      const { _id, title, price, tags, favorite, coverImageUrl, genres, publicationYear } =
+        req.body;
+  
+      await FoodModel.updateOne(
+        { id: _id },
+        {
+          title,
+          price,
+          tags: tags.split ? tags.split(',') : tags,
+          favorite,
+          coverImageUrl,
+          genres: genres.split ? genres.split(',') : genres,
+          publicationYear,
+        }
+      );
+  
+      res.send();
+    })
+  );
+  
+
+
 router.get('/tags', handler(async(req, res) => {
     const tags = await BookModel.aggregate([
         { $unwind: '$tags'},
