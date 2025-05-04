@@ -11,7 +11,7 @@ export default function Thumbnails({ books }) {
           <Link to={`/book/${book.id}`}>
             <img
               className={classes.image}
-              src={`/books/${book.coverImageUrl}`}
+              src={`${book.coverImageUrl}`}
               alt={book.title}
             />
 

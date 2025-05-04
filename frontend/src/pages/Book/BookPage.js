@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import classes from './foodPage.module.css'
+import classes from './bookPage.module.css'
 import { getById } from '../../services/bookService';
 import { useNavigate, useParams } from 'react-router-dom';
 import StarRating from '../../components/StarRating/StarRating';
@@ -8,7 +8,7 @@ import Price from '../../components/Price/Price';
 import { useCart } from '../../hook/useCart';
 import NotFound from '../../components/NotFound/NotFound';
 
-export default function FoodPage() {
+export default function BookPage() {
     const [book, setBook] = useState({});
     const {id} = useParams();
     const {addToCart} = useCart();
@@ -28,7 +28,7 @@ export default function FoodPage() {
         <div className={classes.container}>
             <img 
                 className={classes.image} 
-                src={`/books/${book.coverImageUrl}`}
+                src={`${book.coverImageUrl}`}
                 alt={book.title}
             />
 

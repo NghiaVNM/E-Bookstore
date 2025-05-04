@@ -22,7 +22,7 @@ export default function CartPage() {
                 <li key={item.book.id}>
                   <div>
                     <img
-                      src={`/books/${item.book.coverImageUrl}`}
+                      src={`${item.book.coverImageUrl}`}
                       alt={item.book.title}
                     />
                     </div>

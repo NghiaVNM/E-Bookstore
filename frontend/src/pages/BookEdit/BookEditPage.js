@@ -15,8 +15,6 @@ export default function BookEditPage() {
   const { bookId } = useParams();
   const [coverImageUrl, setImageUrl] = useState();
   const isEditMode = !!bookId;
-  console.log('bookId:', bookId);
-  console.log('isEditMode:', isEditMode);
 
   const navigate = useNavigate();
 
@@ -46,9 +44,9 @@ export default function BookEditPage() {
       return;
     }
 
-    const newbook = await add(book);
+    const newBook = await add(book);
     toast.success(`Book "${book.title}" added successfully!`);
-    navigate('/admin/editbook/' + newbook.id, { replace: true });
+    navigate('/admin/editbook/' + newBook.id, { replace: true });
   };
 
   const upload = async event => {

@@ -57,7 +57,7 @@ export default function BooksAdminPage() {
         {books &&
           books.map(book => (
             <div key={book._id} className={classes.list_item}>
-              <img src={'/books/' + book.coverImageUrl} alt={book.title} />
+              <img src={`${book.coverImageUrl}`} alt={book.title} />
               <Link to={'/book/' + book._id}>{book.title}</Link>
               <Price price={book.price} />
               <div className={classes.actions}>

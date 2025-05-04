@@ -17,22 +17,9 @@ export const dbconnect = async () => {
         await seedUsers();
         await seedBooks();
         console.log('MongoDB connected successfully');
-
-        async function seedBooks() {
-            const bookCount = await BookModel.countDocuments();
-            if (bookCount > 0) {
-                console.log('Book data already exists. Skipping seeding.');
-                return;
-            }
-
-            for (let book of sample_books) {
-                await BookModel.create(book);
-            }
-            console.log('Book data seeded successfully.');
-        }
-    } catch (error) {
-        console.error('MongoDB connection failed:', error.message);
-        process.exit(1);
+    }
+    catch (error) {
+        console.error('MongoDB connection error:', error);
     }
 };
 
