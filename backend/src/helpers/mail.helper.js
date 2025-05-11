@@ -3,15 +3,17 @@ import { getClient } from '../config/mail.config.js';
 export const sendEmailReceipt = function (order) {
   const mailClient = getClient();
 
-  mailClient.messages
-    .create('sandboxce530ab017dc4b32a96cf06b9ac28441.mailgun.org', {
-      from: 'orders@bookmine.com',
-      to: order.user.email,
-      subject: `Order ${order.id} is being processed`,
-      html: getReceiptHtml(order),
-    })
-    .then(msg => console.log(msg)) //success
-    .catch(err => console.log(err)); //fail;
+  const msg = {
+    to: order.user.email, // Recipient email
+    from: '21521951@gm.uit.edu.vn', // Verified sender email
+    subject: `Order ${order.id} is being processed`,
+    html: getReceiptHtml(order), // HTML content
+  };
+
+  mailClient
+    .send(msg)
+    .then(() => console.log('Email sent successfully')) // Success
+    .catch(err => console.error('Error sending email:', err)); // Failure
 };
 
 const getReceiptHtml = function (order) {

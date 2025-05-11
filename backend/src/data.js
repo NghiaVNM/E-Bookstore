@@ -98,4 +98,12 @@ export const sample_users = [
     address: 'Shanghai',
     isAdmin: true,
   },
+  {
+    id: 1,
+    name: 'Silas Liar',
+    email: 'datbinhdang@gmail.com',
+    password: '12345',
+    address: 'HoChiMinh',
+    isAdmin: false,
+  },
 ]
